@@ -6,7 +6,7 @@ Installation script for Arch Linux
 cp env-example.sh env.sh
 nano env.sh # customize environment variables for installation
 ./install.sh
-cp ./final-config.sh /mnt/root
+cp ./env.sh ./final-config.sh /mnt/root
 arch-chroot /mnt /bin/bash
 ./final-config.sh
 ```

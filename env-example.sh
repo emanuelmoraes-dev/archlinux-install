@@ -112,11 +112,12 @@ ARCH_FINAL_INSTALLATION_MESSAGE="\
 Arch Linux has been successfully installed!
 For other necessary configurations to occur, run the command
 
-$ arch-chroot $ARCH_MOUNT_FOLDER /bin/bash
+$ cp ./*.sh '$ARCH_MOUNT_FOLDER/root' && arch-chroot '$ARCH_MOUNT_FOLDER' /bin/bash
 
 After that, run the script
 
 $ ./final-config.sh [<environment-variables-file>]
+
 "
 ARCH_INFORM_THE_ROOT_PASSWORD_MESSAGE="INFORM THE ROOT PASSWORD:"
 ARCH_FINAL_CONFIG_MESSAGE="\
@@ -148,5 +149,6 @@ $ exit
 
 After that, you will need to unmount all partitions and restart the computer, with the following command
 
-$ umount -R $ARCH_MOUNT_FOLDER && shutdown -r -h now
+$ umount -R '$ARCH_MOUNT_FOLDER' && shutdown -r -h now
+
 "
