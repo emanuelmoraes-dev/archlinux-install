@@ -83,6 +83,7 @@ function partitions_get_device {
     fi &&
 
     while [ -z "$__device_name" ]; do
+	printf '\n'
         if [ "$1" ] && [ "$2" ]; then
             printf "$ARCH_DEVICE_NAME" "$1" "$2"
         elif [ "$1" ]; then
@@ -119,7 +120,7 @@ function format_partitions {
         #   * __device_name
         partitions_get_device "$format_name" "$args" &&
 
-        "mkfs$__device_name" $args "$__device_name"
+        "mkfs$format_name" $args "$__device_name"
     done ||
 
     return $?
