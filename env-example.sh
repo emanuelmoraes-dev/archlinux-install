@@ -116,7 +116,7 @@ $ cp ./*.sh '$ARCH_MOUNT_FOLDER/root' && arch-chroot '$ARCH_MOUNT_FOLDER' /bin/b
 
 After that, run the script
 
-$ ./final-config.sh [<environment-variables-file>]
+$ /root/final-config.sh [<environment-variables-file>]
 
 "
 ARCH_INFORM_THE_ROOT_PASSWORD_MESSAGE="INFORM THE ROOT PASSWORD:"

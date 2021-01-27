@@ -8,7 +8,7 @@ nano env.sh # customize environment variables for installation
 ./install.sh
 cp ./env.sh ./final-config.sh /mnt/root
 arch-chroot /mnt /bin/bash
-./final-config.sh
+/root/final-config.sh
 ```
 
 ## API
