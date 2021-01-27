@@ -79,6 +79,21 @@ ARCH_PACKAGES=(
     net-tools
     networkmanager
     nano
+    alsa-utils
+    pulseaudio
+    pulseaudio-alsa
+  # vim
+  # neovim
+  # git
+  # xf86-video-intel # for intel
+  # mesa
+  # xorg
+  # xorg-server
+  # gnome
+  # gnome-extra
+  # mate
+  # mate-extra
+  # lightdm
 )
 
 # COLORS
