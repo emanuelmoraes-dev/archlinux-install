@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# archlinux-install@0.0.1
+# archlinux-install/final-config@0.0.4
 #
 # Performs final system configurations
 #
@@ -61,10 +61,10 @@ function config_datetime {
     if [ -z "$ARCH_LOCALTIME" ]; then
         return $ARCH_ERR_LOCALTIME_NOT_INFORMED_CODE
     fi &&
-    ln -sf "$ARCH_LOCALTIME" /etc/localtime
+    ln -sf "$ARCH_LOCALTIME" /etc/localtime &&
     if [ "${#ARCH_HWCLOCK_ARGS[@]}" -gt 0 ]; then
         hwclock "${ARCH_HWCLOCK_ARGS[@]}"
-    fi && ||
+    fi ||
     return $?
 }
 
