@@ -31,7 +31,7 @@
 function get_args {
     __env_file="$1"
     [ -z "$__env_file" ] && __env_file="$ARCH_DEFAULT_ENV_FILE"
-    __env_file="$DIRNAME/$__env_file"
+    __env_file="$ARCH_DIRNAME/$__env_file"
 }
 
 function check_internet {
