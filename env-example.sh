@@ -94,6 +94,7 @@ ARCH_PACKAGES=(
   # mate
   # mate-extra
   # lightdm
+  # lightdm-gtk-greeter
 )
 
 # COLORS
