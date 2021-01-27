@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# archlinux-install@0.0.1
+# archlinux-install@0.0.2
 #
 # Installation script for Arch Linux
 #
@@ -83,7 +83,7 @@ function partitions_get_device {
     fi &&
 
     while [ -z "$__device_name" ]; do
-        elif [ "$1" ] && [ "$2" ]; then
+        if [ "$1" ] && [ "$2" ]; then
             printf "$ARCH_DEVICE_NAME" "$1" "$2"
         elif [ "$1" ]; then
             printf "$ARCH_DEVICE_NAME_WITHOUT_ARGS" "$1"
