@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# archlinux-install/final-config@0.0.5
+# archlinux-install/final-config@0.0.6
 #
 # Performs final system configurations
 #
@@ -86,7 +86,7 @@ function config_languages {
 
 # set the root password
 function config_root_password {
-    printf '%s\n' "$ARCH_INFORM_THE_ROOT_PASSWORD_MESSAGE" &&
+    printf "\n$ARCH_INFORM_THE_ROOT_PASSWORD\n" &&
     passwd root ||
     return $?
 }

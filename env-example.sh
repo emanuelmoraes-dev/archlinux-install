@@ -100,9 +100,12 @@ ARCH_PACKAGES=(
 # COLORS
 ARCH_END_COLOR="\e[m"
 ARCH_RED="\e[31;1m"
+ARCH_GREEN="\e[32;1m"
 
 # THEMES
 ARCH_ERROR_THEME="$ARCH_RED"
+ARCH_QUESTION_THEME="$ARCH_GREEN"
+ARCH_MESSAGE_THEME="$ARCH_GREEN"
 
 # ERROS
 ## UNEXPECTED
@@ -119,12 +122,13 @@ ARCH_INVALID_DEVICE_MESSAGE="${ARCH_ERROR_THEME}Invalid \"%s\" device!${ARCH_END
 
 # QUESTIONS
 ## DEVICE NAME
-ARCH_DEVICE_NAME='Write the name of the device to be formatted for "%s" with the arguments "%s"\nexample: sda1\n'
-ARCH_DEVICE_NAME_WITHOUT_ARGS='Write the name of the device to be formatted for "%s"\nexample: sda1\n'
-ARCH_DEVICE_NAME_WITHOUT_FORMAT='Write the name of the device with the arguments "%s"\nexample: sda1\n'
+ARCH_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device to be formatted in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device to be formatted in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the root password:${ARCH_END_COLOR}"
 
 # MESSAGES
-ARCH_FINAL_INSTALLATION_MESSAGE="\
+ARCH_FINAL_INSTALLATION_MESSAGE="${ARCH_MESSAGE_THEME}\
 Arch Linux has been successfully installed!
 For other necessary configurations to occur, run the command
 
@@ -133,10 +137,9 @@ $ cp ./*.sh '$ARCH_MOUNT_FOLDER/root' && arch-chroot '$ARCH_MOUNT_FOLDER' /bin/b
 After that, run the script
 
 $ /root/final-config.sh [<environment-variables-file>]
-
+${ARCH_END_COLOR}
 "
-ARCH_INFORM_THE_ROOT_PASSWORD_MESSAGE="INFORM THE ROOT PASSWORD:"
-ARCH_FINAL_CONFIG_MESSAGE="\
+ARCH_FINAL_CONFIG_MESSAGE="${ARCH_MESSAGE_THEME}\
 Arch Linux has been successfully configured!
 
 Attention! If you do not have another Linux system with a boot loader configured, you will need to configure a boot loader (grub, rEFInd, etc.) manually
@@ -166,5 +169,5 @@ $ exit
 After that, you will need to unmount all partitions and restart the computer, with the following command
 
 $ umount -R '$ARCH_MOUNT_FOLDER' && shutdown -r -h now
-
+${ARCH_END_COLOR}
 "
