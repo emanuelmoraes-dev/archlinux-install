@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# archlinux-install/final-config@0.0.4
+# archlinux-install/final-config@0.0.5
 #
 # Performs final system configurations
 #
@@ -79,7 +79,7 @@ function config_languages {
     done &&
 
     locale-gen &&
-    printf 'export LANG="%s"' "$ARCH_LANG" > /etc/locale.conf ||
+    printf 'LANG=%s' "$ARCH_LANG" > /etc/locale.conf ||
 
     return $?
 }
