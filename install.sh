@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# archlinux-install@0.0.2
+# archlinux-install@0.0.3
 #
 # Installation script for Arch Linux
 #
