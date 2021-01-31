@@ -113,6 +113,7 @@ ARCH_WHITE="\e[37;1m"
 # THEMES
 ARCH_ERROR_THEME="$ARCH_RED"
 ARCH_QUESTION_THEME="$ARCH_CYAN"
+ARCH_EMPHASIS="$ARCH_PINK"
 ARCH_MESSAGE_THEME="$ARCH_GREEN"
 
 # ERROS
@@ -130,12 +131,12 @@ ARCH_INVALID_DEVICE_MESSAGE="${ARCH_ERROR_THEME}Invalid \"%s\" device!${ARCH_END
 
 # QUESTIONS
 ## DEVICE NAME
-ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_PINK}to be formatted${ARCH_END_COLOR} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_PINK}to be formatted${ARCH_END_COLOR} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_PINK}to be formatted${ARCH_END_COLOR} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_PINK}to be mounted${ARCH_END_COLOR} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_PINK}to be mounted${ARCH_END_COLOR} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the ${ARCH_PINK}root password:${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be mounted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be mounted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the ${ARCH_EMPHASIS}root password:${ARCH_END_COLOR}"
 
 # MESSAGES
 ARCH_FINAL_INSTALLATION_MESSAGE="${ARCH_MESSAGE_THEME}\
