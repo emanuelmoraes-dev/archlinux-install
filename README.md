@@ -1,36 +1,40 @@
 # archlinux-install
 Installation script for Arch Linux
 
-## quick start
-### clone the git project
+## Quick start
+### Install git
+```sh
+pacman -Sy git
+```
+### Clone the git project
 ```sh
 git clone https://github.com/emanuelmoraes-dev/archlinux-install.git
 ```
-### enter the project directory
+### Enter the project directory
 ```sh
 cd archlinux-install
 ```
-### copy the environment variables file
+### Copy the environment variables file
 ```sh
 cp env-example.sh env.sh
 ```
-### customize variables
+### Customize variables
 ```sh
 nano env.sh
 ```
-### install arch linux
+### Install arch linux
 ```sh
 ./install.sh
 ```
-### copies the scripts to the installed system
+### Copies the scripts to the installed system
 ```sh
 cp *.sh /mnt/root
 ```
-### enters the installed system
+### Enters the installed system
 ```sh
 arch-chroot /mnt /bin/bash
 ```
-### performs final system configurations
+### Performs final system configurations
 ```sh
 /root/final-config.sh
 ```
@@ -38,7 +42,7 @@ arch-chroot /mnt /bin/bash
 ## Important
 Attention! If you do not have another Linux system with a boot loader configured, you will need to configure a boot loader (grub, rEFInd, etc.) manually
 
-## Tips For Install and Setting GRUB:
+## Tips for install and setting GRUB:
 The following are tips on how to install and configure grub after installing and configuring the system. The following commands are generic and should work in most circumstances. If you have any questions or encounter any problems, visit the link <https://wiki.archlinux.org/index.php/GRUB_>
 ### For UEFI non IA32
 ```sh
@@ -77,7 +81,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 Install and configure arch linux
 
-#### params
+#### Params
  * --help:                     Shows all options
  * --version:                  Shows the current version
  * \<environment-variables-file\>: Name of the file containing the environment variables with the information needed to install and configure Arch Linux
@@ -86,7 +90,7 @@ Install and configure arch linux
 
 Performs final system configurations for Arch Linux
 
-#### params
+#### Params
  * --help:                     Shows all options
  * --version:                  Shows the current version
  * \<environment-variables-file\>: Name of the file containing the environment variables with the information needed to install and configure Arch Linux
