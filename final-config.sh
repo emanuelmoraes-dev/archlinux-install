@@ -116,7 +116,7 @@ function main {
 
     run &&
 
-    printf '%s' "$ARCH_FINAL_CONFIG_MESSAGE" || (
+    printf "$ARCH_FINAL_CONFIG_MESSAGE" || (
         err=$?
         case "$err" in
             $ARCH_ERR_LOCALTIME_NOT_INFORMED_CODE) (

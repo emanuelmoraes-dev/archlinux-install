@@ -184,7 +184,7 @@ function main {
 
     install &&
 
-    printf '%s' "$ARCH_FINAL_INSTALLATION_MESSAGE" || (
+    printf "$ARCH_FINAL_INSTALLATION_MESSAGE" || (
         err=$?
         case "$err" in
             $ARCH_ERR_NO_INTERNET_CONNECTION_CODE) (
