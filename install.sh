@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.7
+VERSION=0.0.8
 
-# archlinux-install/install@0.0.7
+# archlinux-install/install@0.0.8
 #
 # Installation script for Arch Linux
 #
@@ -54,6 +54,16 @@ function helpout {
 [ -z "$ARCH_ENV_FILE_INVALID_CODE" ] && ARCH_ENV_FILE_INVALID_CODE=1
 [ -z "$ARCH_ENV_FILE_INVALID_MESSAGE" ] && ARCH_ENV_FILE_INVALID_MESSAGE="Environment variables file invalid or not found"
 [ -z "$ARCH_URL_CHECK_INTERNET" ] && ARCH_URL_CHECK_INTERNET="http://google.com"
+
+# trim whitespace
+function trim {
+    local var="$@"
+    # remove leading whitespace characters
+    var="${var#"${var%%[![:space:]]*}"}"
+    # remove trailing whitespace characters
+    var="${var%"${var##*[![:space:]]}"}"   
+    printf '%s' "$var"
+}
 
 # get the arguments and initialize the global variables
 #
@@ -122,7 +132,7 @@ function format_get_device {
     fi &&
 
     while [ -z "$__device_name" ]; do
-	printf '\n'
+	    printf '\n'
         if [ "$1" ] && [ "$2" ]; then
             printf "$ARCH_FORMAT_DEVICE_NAME" "$1" "$2"
         elif [ "$1" ]; then
@@ -133,8 +143,9 @@ function format_get_device {
 
         printf '$>> ' &&
         read __device_name &&
+        __device_name="$(trim "$__device_name")" &&
 
-        if ! lsblk -o name | grep "$__device_name" 1> /dev/null 2>&1; then
+        if [ -z "$__device_name" ] || ! lsblk -o name | grep "$__device_name" 1> /dev/null 2>&1; then
             printf >&2 "$ARCH_INVALID_DEVICE_MESSAGE\n" "$__device_name" &&
             __device_name=
         fi
@@ -185,7 +196,7 @@ function mount_get_device {
     fi &&
 
     while [ -z "$__device_name" ]; do
-	printf '\n'
+	    printf '\n'
         if [ "$1" ] && [ "$2" ]; then
             printf "$ARCH_MOUNT_DEVICE_NAME" "$1" "$2"
         elif [ "$1" ]; then
@@ -194,8 +205,9 @@ function mount_get_device {
 
         printf '$>> ' &&
         read __device_name &&
+        __device_name="$(trim "$__device_name")" &&
 
-        if ! lsblk -o name | grep "$__device_name" 1> /dev/null 2>&1; then
+        if [ -z "$__device_name" ] || ! lsblk -o name | grep "$__device_name" 1> /dev/null 2>&1; then
             printf >&2 "$ARCH_INVALID_DEVICE_MESSAGE\n" "$__device_name" &&
             __device_name=
         fi
