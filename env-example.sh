@@ -139,7 +139,7 @@ ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the
 ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the ${ARCH_EMPHASIS}root password:${ARCH_END_COLOR}"
 
 # MESSAGES
-ARCH_FINAL_INSTALLATION_MESSAGE="${ARCH_MESSAGE_THEME}\
+ARCH_FINAL_INSTALLATION_MESSAGE="${ARCH_MESSAGE_THEME}
 Arch Linux has been successfully installed!
 For other necessary configurations to occur, run the command
 
@@ -150,22 +150,22 @@ After that, run the script
 $ /root/final-config.sh [<environment-variables-file>]
 ${ARCH_END_COLOR}
 "
-ARCH_FINAL_CONFIG_MESSAGE="${ARCH_MESSAGE_THEME}\
+ARCH_FINAL_CONFIG_MESSAGE="${ARCH_MESSAGE_THEME}
 Arch Linux has been successfully configured!
 
 Attention! If you do not have another Linux system with a boot loader configured, you will need to configure a boot loader (grub, rEFInd, etc.) manually
 
 # Tips for setting up grub:
 ## For UEFI non IA32
-$ pacman -S grub os-prober dosfstools efibootmgr mtools
+$ pacman -Sy grub os-prober dosfstools efibootmgr mtools
 $ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ## For UEFI IA32
-$ pacman -S grub os-prober dosfstools efibootmgr mtools
+$ pacman -Sy grub os-prober dosfstools efibootmgr mtools
 $ grub-install --target=i386-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ## For non UEFI
-$ pacman -S grub os-prober
+$ pacman -Sy grub os-prober
 $ grub-install --target=i386-pc /dev/sda
 $ grub-mkconfig -o /boot/grub/grub.cfg
 
