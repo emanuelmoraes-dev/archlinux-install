@@ -82,6 +82,8 @@ ARCH_PACKAGES=(
     alsa-utils
     pulseaudio
     pulseaudio-alsa
+    bluez
+    bluez-utils
   # vim
   # neovim
   # git
