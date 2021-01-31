@@ -47,7 +47,10 @@ ARCH_PACSTRAP_PACKAGES=(base base-devel linux linux-firmware)
 ## FSTAB
 
 ARCH_GENFSTAB_ARGS=(-U)
-ARCH_FSTAB_EDIT=nano
+
+### text editor to check the /etc/fstab file
+
+ARCH_FSTAB_EDIT=
 
 # FINAL CONFIG
 
