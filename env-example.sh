@@ -56,6 +56,7 @@ ARCH_HOSTS="\
 ## set zoneinfo
 ### example
 #### ARCH_LOCALTIME=/usr/share/zoneinfo/America/Sao_Paulo
+#### ARCH_LOCALTIME=/usr/share/zoneinfo/America/Fortaleza
 ARCH_LOCALTIME=
 
 ## set system clock
