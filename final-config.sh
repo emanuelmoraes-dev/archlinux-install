@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-# archlinux-install/final-config@0.0.6
+VERSION=0.0.7
+
+# archlinux-install/final-config@0.0.7
 #
-# Performs final system configurations
+# Performs final system configurations for Arch Linux
 #
 # Parameters:
-#      [<environment-variables-file>]
+#      [--help | --version] [<environment-variables-file>]
 #
-#      environment-variables-file: Name of the file containing the environment variables with
+#      --help:                     Shows all options
+#      --version:                  Shows the current version
+#      <environment-variables-file>: Name of the file containing the environment variables with
 #                                  the information needed to install and configure Arch Linux.
 #                                  Default value: env.sh
 #
@@ -16,6 +20,33 @@
 #
 # Example 2:
 #     ./final-config env.sh
+
+function helpout {
+    printf '%s\n' "archlinux-install/final-config@$VERSION"
+    printf '\n'
+    printf '%s\n' "Performs final system configurations for Arch Linux"
+    printf '\n'
+    printf '%s\n' "Parameters:"
+    printf '%s\n' "     [--help | --version] [<environment-variables-file>]"
+    printf '\n'
+    printf '%s\n' "     --help:                     Shows all options"
+    printf '%s\n' "     --version:                  Shows the current version"
+    printf '%s\n' "     <environment-variables-file>: Name of the file containing the environment variables with"
+    printf '%s\n' "                                 the information needed to install and configure Arch Linux."
+    printf '%s\n' "                                 Default value: env.sh"
+    printf '\n'
+    printf '%s\n' "Example 1:"
+    printf '%s\n' "    ./final-config"
+    printf '\n'
+    printf '%s\n' "Example 2:"
+    printf '%s\n' "    ./final-config env.sh"
+
+    if [ "$1" = "--autor" ]; then
+        printf '\n%s\n' "Autor: Emanuel Moraes de Almeida"
+        printf '%s\n' "Email: emanuelmoraes297@gmail.com"
+        printf '%s\n' "Github: https://github.com/emanuelmoraes-dev"
+    fi
+}
 
 # CONSTANT
 [ -z "$ARCH_DIRNAME" ] && ARCH_DIRNAME="$(dirname "$0")"
@@ -29,6 +60,14 @@
 # exports:
 #   * __env_file
 function get_args {
+    if [ "$1" = "--version" ]; then
+        printf 'version: %s\n' "$VERSION"
+        exit 0
+    elif [ "$1" = "--help" ]; then
+        helpout --autor
+        exit 0
+    fi
+
     __env_file="$1"
     [ -z "$__env_file" ] && __env_file="$ARCH_DEFAULT_ENV_FILE"
     __env_file="$ARCH_DIRNAME/$__env_file"
