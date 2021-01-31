@@ -71,7 +71,7 @@ function create_partitions {
 #   2: args
 # exports:
 #   * __device_name
-function partitions_get_device {
+function format_get_device {
     __device_name=
 
     if [ "$ARCH_LIST_PARTITIONS_COMMAND" ]; then
@@ -85,11 +85,11 @@ function partitions_get_device {
     while [ -z "$__device_name" ]; do
 	printf '\n'
         if [ "$1" ] && [ "$2" ]; then
-            printf "$ARCH_DEVICE_NAME" "$1" "$2"
+            printf "$ARCH_FORMAT_DEVICE_NAME" "$1" "$2"
         elif [ "$1" ]; then
-            printf "$ARCH_DEVICE_NAME_WITHOUT_ARGS" "$1"
+            printf "$ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS" "$1"
         elif [ "$2" ]; then
-            printf "$ARCH_DEVICE_NAME_WITHOUT_FORMAT" "$2"
+            printf "$ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT" "$2"
         fi &&
 
         printf '$>> ' &&
@@ -119,10 +119,50 @@ function format_partitions {
 
         # exports
         #   * __device_name
-        partitions_get_device "$format_name" "$args" &&
+        format_get_device "$format_name" "$args" &&
 
         "mkfs$format_name" $args "$__device_name"
     done ||
+
+    return $?
+}
+
+# get the name of the device to be mounted
+#
+# arguments
+#   1: mount_point
+#   2: args
+# exports:
+#   * __device_name
+function mount_get_device {
+    __device_name=
+
+    if [ "$ARCH_LIST_PARTITIONS_COMMAND" ]; then
+        if [ "$ARCH_LIST_LESS" -eq 0 ]; then
+            "$ARCH_LIST_PARTITIONS_COMMAND" "${ARCH_LIST_PARTITIONS_ARGS[@]}"
+        else
+            "$ARCH_LIST_PARTITIONS_COMMAND" "${ARCH_LIST_PARTITIONS_ARGS[@]}" | less
+        fi
+    fi &&
+
+    while [ -z "$__device_name" ]; do
+	printf '\n'
+        if [ "$1" ] && [ "$2" ]; then
+            printf "$ARCH_MOUNT_DEVICE_NAME" "$1" "$2"
+        elif [ "$1" ]; then
+            printf "$ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS" "$1"
+        fi &&
+
+        printf '$>> ' &&
+        read __device_name &&
+
+        if ! lsblk -o name | grep "$__device_name" 1> /dev/null 2>&1; then
+            printf >&2 "$ARCH_INVALID_DEVICE_MESSAGE\n" "$__device_name" &&
+            __device_name=
+        fi
+    done &&
+    
+    __device_name="/dev/$__device_name" ||
 
     return $?
 }
@@ -140,7 +180,7 @@ function mount_partitions {
 
         # exports
         #   * __device_name
-        partitions_get_device "$point" "$args" &&
+        mount_get_device "$point" "$args" &&
 
         mkdir -p "${ARCH_MOUNT_FOLDER}${point}" &&
         mount $args "$__device_name" "${ARCH_MOUNT_FOLDER}${point}"
