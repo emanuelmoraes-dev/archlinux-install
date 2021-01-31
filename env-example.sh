@@ -113,7 +113,7 @@ ARCH_WHITE="\e[37;1m"
 # THEMES
 ARCH_ERROR_THEME="$ARCH_RED"
 ARCH_QUESTION_THEME="$ARCH_CYAN"
-ARCH_EMPHASIS="$ARCH_PINK"
+ARCH_EMPHASIS_THEME="$ARCH_PINK"
 ARCH_MESSAGE_THEME="$ARCH_GREEN"
 
 # ERROS
@@ -131,23 +131,24 @@ ARCH_INVALID_DEVICE_MESSAGE="${ARCH_ERROR_THEME}Invalid \"%s\" device!${ARCH_END
 
 # QUESTIONS
 ## DEVICE NAME
-ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be formatted${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be mounted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS}to be mounted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the ${ARCH_EMPHASIS}root password:${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_INFORM_THE_ROOT_PASSWORD="${ARCH_QUESTION_THEME}Inform the ${ARCH_EMPHASIS_THEME}root password:${ARCH_END_COLOR}"
 
 # MESSAGES
 ARCH_FINAL_INSTALLATION_MESSAGE="${ARCH_MESSAGE_THEME}
 Arch Linux has been successfully installed!
 For other necessary configurations to occur, run the command
 
-$ cp ./*.sh '$ARCH_MOUNT_FOLDER/root' && arch-chroot '$ARCH_MOUNT_FOLDER' /bin/bash
+$ ${ARCH_EMPHASIS_THEME}cp ./*.sh '$ARCH_MOUNT_FOLDER/root'${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}arch-chroot '$ARCH_MOUNT_FOLDER' /bin/bash${ARCH_MESSAGE_THEME}
 
-After that, run the script
+${ARCH_EMPHASIS_THEME}After${ARCH_MESSAGE_THEME} that, run the script
 
-$ /root/final-config.sh [<environment-variables-file>]
+$ ${ARCH_EMPHASIS_THEME}/root/final-config.sh [<environment-variables-file>]${ARCH_MESSAGE_THEME}
 ${ARCH_END_COLOR}
 "
 ARCH_FINAL_CONFIG_MESSAGE="${ARCH_MESSAGE_THEME}
@@ -155,26 +156,27 @@ Arch Linux has been successfully configured!
 
 Attention! If you do not have another Linux system with a boot loader configured, you will need to configure a boot loader (grub, rEFInd, etc.) manually
 
-# Tips for setting up grub:
-## For UEFI non IA32
-$ pacman -Sy grub os-prober dosfstools efibootmgr mtools
-$ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-$ grub-mkconfig -o /boot/grub/grub.cfg
-## For UEFI IA32
-$ pacman -Sy grub os-prober dosfstools efibootmgr mtools
-$ grub-install --target=i386-efi --efi-directory=/boot/efi --bootloader-id=GRUB
-$ grub-mkconfig -o /boot/grub/grub.cfg
-## For non UEFI
-$ pacman -Sy grub os-prober
-$ grub-install --target=i386-pc /dev/sda
-$ grub-mkconfig -o /boot/grub/grub.cfg
+# ${ARCH_EMPHASIS_THEME}Tips${ARCH_MESSAGE_THEME} for setting up ${ARCH_EMPHASIS_THEME}grub${ARCH_MESSAGE_THEME}:
+## For ${ARCH_EMPHASIS_THEME}UEFI non IA32${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}pacman -Sy grub os-prober dosfstools efibootmgr mtools${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-mkconfig -o /boot/grub/grub.cfg${ARCH_MESSAGE_THEME}
+## For ${ARCH_EMPHASIS_THEME}UEFI IA32${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}pacman -Sy grub os-prober dosfstools efibootmgr mtools${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-install --target=i386-efi --efi-directory=/boot/efi --bootloader-id=GRUB${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-mkconfig -o /boot/grub/grub.cfg${ARCH_MESSAGE_THEME}
+## For ${ARCH_EMPHASIS_THEME}non UEFI${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}pacman -Sy grub os-prober${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-install --target=i386-pc /dev/sda${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}grub-mkconfig -o /boot/grub/grub.cfg${ARCH_MESSAGE_THEME}
 
 Now you need to exit arch-chroot with the command
 
-$ exit
+$ ${ARCH_EMPHASIS_THEME}exit${ARCH_MESSAGE_THEME}
 
 After that, you will need to unmount all partitions and restart the computer, with the following command
 
-$ umount -R '$ARCH_MOUNT_FOLDER' && shutdown -r -h now
+$ ${ARCH_EMPHASIS_THEME}umount -R '$ARCH_MOUNT_FOLDER'${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}shutdown -r -h now${ARCH_MESSAGE_THEME}
 ${ARCH_END_COLOR}
 "
