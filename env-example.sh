@@ -168,10 +168,6 @@ $ pacman -S grub os-prober
 $ grub-install --target=i386-pc /dev/sda
 $ grub-mkconfig -o /boot/grub/grub.cfg
 
-# Tips for setting up rEFInd (ONLY UEFI):
-$ pacman -S refind
-$ refind-install
-
 Now you need to exit arch-chroot with the command
 
 $ exit
