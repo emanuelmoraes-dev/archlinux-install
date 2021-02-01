@@ -226,6 +226,7 @@ function mount_partitions {
     local __device_name
 
     for ((i = 0; i < "${#ARCH_MOUNT_PARTITIONS_POINTS[@]}"; i++)); do
+	name="${ARCH_MOUNT_PARTITIONS_NAMES[i]}"
         point="${ARCH_MOUNT_PARTITIONS_POINTS[i]}"
         args="${ARCH_MOUNT_PARTITIONS_ARGS[i]}"
 
@@ -234,7 +235,7 @@ function mount_partitions {
         mount_get_device "$point" "$args" &&
 
         mkdir -p "${ARCH_MOUNT_FOLDER}${point}" &&
-        mount $args "$__device_name" "${ARCH_MOUNT_FOLDER}${point}"
+        "mount$name" $args "$__device_name" "${ARCH_MOUNT_FOLDER}${point}"
     done ||
 
     return $?

@@ -20,15 +20,15 @@ ARCH_CREATE_PARTITIONS_COMMAND=cfdisk
 ARCH_CREATE_PARTITIONS_ARGS=()
 
 ## FORMAT PARTITIONS (via mkfs)
-### format names
+### sufix for "mkfs" command
 #### example
-##### ARCH_FORMAT_PARTITIONS_FORMAT_NAMES=(.fat .ext4)
+##### ARCH_FORMAT_PARTITIONS_FORMAT_NAMES=(.fat .ext4) # mkfs.fat ... && mkfs.ext4 ...
 
 ARCH_FORMAT_PARTITIONS_FORMAT_NAMES=()
 
-### arguments
+### arguments for "mkfs" command
 #### example
-##### ARCH_FORMAT_PARTITIONS_ARGS=(-F32 '')
+##### ARCH_FORMAT_PARTITIONS_ARGS=(-F32 '') mkfs.fat -F32 ... && mkfs.ext4 ...
 
 ARCH_FORMAT_PARTITIONS_ARGS=()
 
@@ -36,7 +36,13 @@ ARCH_FORMAT_PARTITIONS_ARGS=()
 
 ARCH_MOUNT_FOLDER=/mnt
 ARCH_MOUNT_PARTITIONS_POINTS=(/)
-ARCH_MOUNT_PARTITIONS_ARGS=('')
+ARCH_MOUNT_PARTITIONS_ARGS=('') # arguments for "mount" command
+
+### sufix for "mount" command
+#### example
+##### ARCH_MOUNT_PARTITIONS_NAMES=(.ntfs) # mount.ntfs ...
+
+ARCH_MOUNT_PARTITIONS_NAMES=() # nothing works for "fat" and "ext4"
 
 ## LIST PARTITIONS
 
