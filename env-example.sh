@@ -109,6 +109,7 @@ ARCH_LANG="en_US.UTF-8"
 ARCH_PACKAGES=(
     net-tools
     networkmanager
+    iwd
     nano
     alsa-utils
     pulseaudio
@@ -122,10 +123,13 @@ ARCH_PACKAGES=(
   # mesa
   # xorg
   # xorg-server
+  # blueman
   # gnome
   # gnome-extra
   # mate
   # mate-extra
+  # network-manager-applet
+  # system-config-printer
   # lightdm
   # lightdm-gtk-greeter
 )
