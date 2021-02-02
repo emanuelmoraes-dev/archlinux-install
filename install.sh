@@ -2,7 +2,7 @@
 
 VERSION=0.0.8
 
-# archlinux-install/install@0.0.8
+# archlinux-install/install@0.0.9
 #
 # Installation script for Arch Linux
 #
@@ -226,7 +226,7 @@ function mount_partitions {
     local __device_name
 
     for ((i = 0; i < "${#ARCH_MOUNT_PARTITIONS_POINTS[@]}"; i++)); do
-	name="${ARCH_MOUNT_PARTITIONS_NAMES[i]}"
+	    name="${ARCH_MOUNT_PARTITIONS_NAMES[i]}"
         point="${ARCH_MOUNT_PARTITIONS_POINTS[i]}"
         args="${ARCH_MOUNT_PARTITIONS_ARGS[i]}"
 
