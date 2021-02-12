@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.7
+VERSION=0.0.8
 
-# archlinux-install/final-config@0.0.7
+# archlinux-install/final-config@0.0.8
 #
 # Performs final system configurations for Arch Linux
 #
@@ -90,7 +90,7 @@ function config {
     ) &&
     check_internet &&
     if [ "$ARCH_LOADKEYS" ]; then
-        loadkeys "$ARCH_LOADKEYS"
+        localectl set-keymap --no-convert "$ARCH_LOADKEYS"
     fi ||
     return $?
 }
