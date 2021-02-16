@@ -97,7 +97,7 @@ ARCH_HWCLOCK_ARGS=(--systohc --utc)
 #### cat /etc/locale.gen
 
 ARCH_LANGUAGES=(
-    en_US.UTF-8 UTF-8
+    'en_US.UTF-8 UTF-8'
 )
 
 ## sets the system language
