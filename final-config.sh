@@ -136,9 +136,8 @@ function run {
     config_datetime &&
     config_languages &&
     config_root_password &&
-    pacman -Sy "${ARCH_PACKAGES[@]}" &&
-    systemctl enable NetworkManager.service ||
-    return $?
+    pacman -Sy "${ARCH_PACKAGES[@]}" || return $?
+    systemctl enable NetworkManager.service
 }
 
 # main function
