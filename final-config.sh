@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.10
+VERSION=0.0.11
 
-# archlinux-install/final-config@0.0.10
+# archlinux-install/final-config@0.0.11
 #
 # Performs final system configurations for Arch Linux
 #
@@ -90,7 +90,8 @@ function config {
     ) &&
     check_internet &&
     if [ "$ARCH_LOADKEYS" ]; then
-        localectl set-keymap --no-convert "$ARCH_LOADKEYS"
+        loadkeys "$ARCH_LOADKEYS" &&
+        printf 'KEYMAP=%s\n' "$ARCH_LOADKEYS" >> /etc/vconsole.conf
     fi ||
     return $?
 }
