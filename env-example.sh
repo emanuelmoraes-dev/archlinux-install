@@ -176,11 +176,11 @@ ARCH_INVALID_DEVICE_MESSAGE="${ARCH_ERROR_THEME}Invalid \"%s\" device!${ARCH_END
 
 ## DEVICE NAME
 
-ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in ${ARCH_EMPHASIS_THEME}\"%s\"${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_FORMAT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} in ${ARCH_EMPHASIS_THEME}\"%s\"${ARCH_QUESTION_THEME}:\nexample: sda1\n${ARCH_END_COLOR}"
 ARCH_FORMAT_DEVICE_NAME_WITHOUT_FORMAT="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be formatted${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in \"%s\" with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
-ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in ${ARCH_EMPHASIS_THEME}\"%s\"${ARCH_QUESTION_THEME} with the arguments \"%s\":\nexample: sda1\n${ARCH_END_COLOR}"
+ARCH_MOUNT_DEVICE_NAME_WITHOUT_ARGS="${ARCH_QUESTION_THEME}Write the name of the device ${ARCH_EMPHASIS_THEME}to be mounted${ARCH_QUESTION_THEME} in ${ARCH_EMPHASIS_THEME}\"%s\"${ARCH_QUESTION_THEME}:\nexample: sda1\n${ARCH_END_COLOR}"
 
 ## ROOT PASSWORD
 
