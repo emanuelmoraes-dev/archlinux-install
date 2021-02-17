@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.8
+VERSION=0.0.9
 
-# archlinux-install/final-config@0.0.8
+# archlinux-install/final-config@0.0.9
 #
 # Performs final system configurations for Arch Linux
 #
@@ -125,19 +125,30 @@ function config_languages {
 
 # set the root password
 function config_root_password {
-    printf "\n$ARCH_INFORM_THE_ROOT_PASSWORD\n" &&
-    passwd root ||
+    local isdone=0 &&
+    while [ "$isdone" = 0 ]; do
+	(
+            printf "\n$ARCH_INFORM_THE_ROOT_PASSWORD\n" &&
+            passwd root &&
+            isdone=1
+	) || isdone=0
+    done ||
     return $?
 }
 
 # performs final settings
 function run {
-    printf '%s' "$ARCH_HOSTNAME" > /etc/hostname &&
-    config_datetime &&
-    config_languages &&
-    config_root_password &&
-    pacman -Sy "${ARCH_PACKAGES[@]}" || return $?
+    (
+        printf '%s' "$ARCH_HOSTNAME" > /etc/hostname &&
+        config_datetime &&
+        config_languages &&
+        config_root_password &&
+        pacman -Sy "${ARCH_PACKAGES[@]}"
+    ) || return $?
+
     systemctl enable NetworkManager.service
+
+    return 0
 }
 
 # main function
