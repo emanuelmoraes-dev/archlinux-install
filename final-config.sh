@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.9
+VERSION=0.0.10
 
-# archlinux-install/final-config@0.0.9
+# archlinux-install/final-config@0.0.10
 #
 # Performs final system configurations for Arch Linux
 #
@@ -127,11 +127,9 @@ function config_languages {
 function config_root_password {
     local isdone=0 &&
     while [ "$isdone" = 0 ]; do
-	(
-            printf "\n$ARCH_INFORM_THE_ROOT_PASSWORD\n" &&
-            passwd root &&
-            isdone=1
-	) || isdone=0
+        printf "\n$ARCH_INFORM_THE_ROOT_PASSWORD\n" &&
+        passwd root &&
+        isdone=1 || isdone=0
     done ||
     return $?
 }
