@@ -227,6 +227,6 @@ $ ${ARCH_EMPHASIS_THEME}exit${ARCH_MESSAGE_THEME}
 After that, you will need to unmount all partitions and restart the computer, with the following command
 
 $ ${ARCH_EMPHASIS_THEME}umount -R '$ARCH_MOUNT_FOLDER'${ARCH_MESSAGE_THEME}
-$ ${ARCH_EMPHASIS_THEME}shutdown -r -h now${ARCH_MESSAGE_THEME}
+$ ${ARCH_EMPHASIS_THEME}reboot${ARCH_MESSAGE_THEME}
 ${ARCH_END_COLOR}
 "
