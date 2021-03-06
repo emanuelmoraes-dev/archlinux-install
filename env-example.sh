@@ -107,11 +107,12 @@ ARCH_LANG="en_US.UTF-8"
 ## PACKAGES
 
 ARCH_PACKAGES=(
-    nano
     net-tools
     networkmanager
     network-manager-applet
     iwd
+    sudo
+    nano
     firefox
     alsa-utils
     pulseaudio
