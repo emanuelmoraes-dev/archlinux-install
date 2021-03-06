@@ -126,6 +126,7 @@ ARCH_PACKAGES=(
   # mesa
   # xorg
   # xorg-server
+  # xorg-drivers
   # blueman
   # gnome
   # gnome-extra
