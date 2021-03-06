@@ -2,13 +2,23 @@
 
 # INSTALLATION
 
-## KEYBOARD
-### to list all available map.gz
-#### `ls /usr/share/kbd/keymaps/**/*.map.gz`
+## CONSOLE_KEYMAP
+### default keymap for console
+#### to list all available keymaps
+##### `ls /usr/share/kbd/keymaps/**/*.map.gz`
 ### example
-#### ARCH_LOADKEYS=br-abnt2
+#### ARCH_CONSOLE_KEYMAP=br-abnt2
 
-ARCH_LOADKEYS=
+ARCH_CONSOLE_KEYMAP=
+
+## X11_KEYMAP
+### keymap for xorg
+#### to list all available keymaps
+##### `localectl list-x11-keymap-layouts`
+### example
+#### ARCH_X11_KEYMAP=br
+
+ARCH_X11_KEYMAP=
 
 ## CREATE PARTITIONS
 

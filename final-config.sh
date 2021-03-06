@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.11
+VERSION=0.0.12
 
-# archlinux-install/final-config@0.0.11
+# archlinux-install/final-config@0.0.12
 #
 # Performs final system configurations for Arch Linux
 #
@@ -89,9 +89,13 @@ function config {
         exit $ARCH_ENV_FILE_INVALID_CODE
     ) &&
     check_internet &&
-    if [ "$ARCH_LOADKEYS" ]; then
-        loadkeys "$ARCH_LOADKEYS" &&
-        printf 'KEYMAP=%s\n' "$ARCH_LOADKEYS" >> /etc/vconsole.conf
+    if [ "$ARCH_CONSOLE_KEYMAP" ]; then
+#       printf 'KEYMAP=%s\n' "$ARCH_CONSOLE_KEYMAP" >> /etc/vconsole.conf &&
+        loadkeys "$ARCH_CONSOLE_KEYMAP" &&
+        localectl --no-convert set-keymap "$ARCH_CONSOLE_KEYMAP"
+    fi &&
+    if [ "$ARCH_X11_KEYMAP" ]; then
+        localectl --no-convert set-x11-keymap "$ARCH_X11_KEYMAP"
     fi ||
     return $?
 }
