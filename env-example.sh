@@ -107,18 +107,20 @@ ARCH_LANG="en_US.UTF-8"
 ## PACKAGES
 
 ARCH_PACKAGES=(
+    nano
     net-tools
     networkmanager
+    network-manager-applet
     iwd
-    nano
+    firefox
     alsa-utils
     pulseaudio
     pulseaudio-alsa
-    bluez
-    bluez-utils
+  # git
+  # bluez
+  # bluez-utils
   # vim
   # neovim
-  # git
   # xf86-video-intel # for intel
   # mesa
   # xorg
@@ -128,7 +130,6 @@ ARCH_PACKAGES=(
   # gnome-extra
   # mate
   # mate-extra
-  # network-manager-applet
   # system-config-printer
   # lightdm
   # lightdm-gtk-greeter
