@@ -117,6 +117,7 @@ ARCH_LANG="en_US.UTF-8"
 ## PACKAGES
 
 ARCH_PACKAGES=(
+    usbutils
     net-tools
     networkmanager
     network-manager-applet
@@ -127,6 +128,7 @@ ARCH_PACKAGES=(
     alsa-utils
     pulseaudio
     pulseaudio-alsa
+    system-config-printer
   # git
   # bluez
   # bluez-utils
@@ -142,7 +144,6 @@ ARCH_PACKAGES=(
   # gnome-extra
   # mate
   # mate-extra
-  # system-config-printer
   # lightdm
   # lightdm-gtk-greeter
 )
