@@ -2,24 +2,6 @@
 
 # INSTALLATION
 
-## CONSOLE_KEYMAP
-### default keymap for console
-#### to list all available keymaps
-##### `ls /usr/share/kbd/keymaps/**/*.map.gz`
-### example
-#### ARCH_CONSOLE_KEYMAP=br-abnt2
-
-ARCH_CONSOLE_KEYMAP=
-
-## X11_KEYMAP
-### keymap for xorg
-#### to list all available keymaps
-##### `localectl list-x11-keymap-layouts`
-### example
-#### ARCH_X11_KEYMAP=br
-
-ARCH_X11_KEYMAP=
-
 ## CREATE PARTITIONS
 
 ARCH_CREATE_PARTITIONS_COMMAND=cfdisk
@@ -73,6 +55,32 @@ ARCH_GENFSTAB_ARGS=(-U)
 ARCH_FSTAB_EDIT=
 
 # FINAL CONFIG
+
+## if ARCH_USE_SYSTEMD is 1, use SystemD
+
+ARCH_USE_SYSTEMD=1
+
+## if ARCH_ENABLE_NETWORK and ARCH_USE_SYSTEMD is 1, `systemctl enable NetworkManager.service` is executed
+
+ARCH_ENABLE_NETWORK=1
+
+## CONSOLE_KEYMAP
+### default keymap for console
+#### to list all available keymaps
+##### `ls /usr/share/kbd/keymaps/**/*.map.gz`
+### example
+#### ARCH_CONSOLE_KEYMAP=br-abnt2
+
+ARCH_CONSOLE_KEYMAP=
+
+## X11_KEYMAP
+### keymap for xorg (is used only if ARCH_USE_SYSTEMD is 1)
+#### to list all available keymaps
+##### `localectl list-x11-keymap-layouts`
+### example
+#### ARCH_X11_KEYMAP=br
+
+ARCH_X11_KEYMAP=
 
 ## set hostname
 

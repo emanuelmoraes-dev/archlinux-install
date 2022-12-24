@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.12
+VERSION=0.0.13
 
-# archlinux-install/final-config@0.0.12
+# archlinux-install/final-config@0.0.13
 #
 # Performs final system configurations for Arch Linux
 #
@@ -20,6 +20,10 @@ VERSION=0.0.12
 #
 # Example 2:
 #     ./final-config env.sh
+#
+# Autor: Emanuel Moraes de Almeida
+# Email: emanuelmoraes297@gmail.com
+# Github: https://github.com/emanuelmoraes-dev
 
 function helpout {
     printf '%s\n' "archlinux-install/final-config@$VERSION"
@@ -53,7 +57,7 @@ function helpout {
 [ -z "$ARCH_DEFAULT_ENV_FILE" ] && ARCH_DEFAULT_ENV_FILE="env.sh"
 [ -z "$ARCH_ENV_FILE_INVALID_CODE" ] && ARCH_ENV_FILE_INVALID_CODE=1
 [ -z "$ARCH_ENV_FILE_INVALID_MESSAGE" ] && ARCH_ENV_FILE_INVALID_MESSAGE="Environment variables file invalid or not found"
-[ -z "$ARCH_URL_CHECK_INTERNET" ] && ARCH_URL_CHECK_INTERNET="http://google.com"
+[ -z "$ARCH_URL_CHECK_INTERNET" ] && ARCH_URL_CHECK_INTERNET="https://google.com"
 
 # get the arguments and initialize the global variables
 #
@@ -90,12 +94,18 @@ function config {
     ) &&
     check_internet &&
     if [ "$ARCH_CONSOLE_KEYMAP" ]; then
-#       printf 'KEYMAP=%s\n' "$ARCH_CONSOLE_KEYMAP" >> /etc/vconsole.conf &&
         loadkeys "$ARCH_CONSOLE_KEYMAP" &&
-        localectl --no-convert set-keymap "$ARCH_CONSOLE_KEYMAP"
+
+        if [ "$ARCH_USE_SYSTEMD" = "1" ]; then
+            localectl --no-convert set-keymap "$ARCH_CONSOLE_KEYMAP"
+        else
+            printf 'KEYMAP=%s\n' "$ARCH_CONSOLE_KEYMAP" >> /etc/vconsole.conf &&
+        fi
     fi &&
     if [ "$ARCH_X11_KEYMAP" ]; then
-        localectl --no-convert set-x11-keymap "$ARCH_X11_KEYMAP"
+        if [ "$ARCH_USE_SYSTEMD" = "1" ]; then
+            localectl --no-convert set-x11-keymap "$ARCH_X11_KEYMAP"
+        fi
     fi ||
     return $?
 }
@@ -149,7 +159,9 @@ function run {
         pacman -Sy "${ARCH_PACKAGES[@]}"
     ) || return $?
 
-    systemctl enable NetworkManager.service
+    if [ "$ARCH_USE_SYSTEMD" = "1" ] && [ "$ARCH_ENABLE_NETWORK" = "1" ]; then
+        systemctl enable NetworkManager.service || return $?
+    fi
 
     return 0
 }

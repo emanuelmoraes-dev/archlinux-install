@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-VERSION=0.0.8
+VERSION=0.0.10
 
-# archlinux-install/install@0.0.9
+# archlinux-install/install@0.0.10
 #
 # Installation script for Arch Linux
 #
@@ -16,10 +16,14 @@ VERSION=0.0.8
 #                                  Default value: env.sh
 #
 # Example 1:
-#     ./final-config
+#     ./install.sh
 #
 # Example 2:
-#     ./final-config env.sh
+#     ./install.sh env.
+#
+# Autor: Emanuel Moraes de Almeida
+# Email: emanuelmoraes297@gmail.com
+# Github: https://github.com/emanuelmoraes-dev
 
 function helpout {
     printf '%s\n' "archlinux-install/install@$VERSION"
@@ -36,10 +40,10 @@ function helpout {
     printf '%s\n' "                                 Default value: env.sh"
     printf '\n'
     printf '%s\n' "Example 1:"
-    printf '%s\n' "    ./final-config"
+    printf '%s\n' "    ./install.sh"
     printf '\n'
     printf '%s\n' "Example 2:"
-    printf '%s\n' "    ./final-config env.sh"
+    printf '%s\n' "    ./install.sh env.sh"
 
     if [ "$1" = "--autor" ]; then
         printf '\n%s\n' "Autor: Emanuel Moraes de Almeida"
@@ -53,7 +57,7 @@ function helpout {
 [ -z "$ARCH_DEFAULT_ENV_FILE" ] && ARCH_DEFAULT_ENV_FILE="env.sh"
 [ -z "$ARCH_ENV_FILE_INVALID_CODE" ] && ARCH_ENV_FILE_INVALID_CODE=1
 [ -z "$ARCH_ENV_FILE_INVALID_MESSAGE" ] && ARCH_ENV_FILE_INVALID_MESSAGE="Environment variables file invalid or not found"
-[ -z "$ARCH_URL_CHECK_INTERNET" ] && ARCH_URL_CHECK_INTERNET="http://google.com"
+[ -z "$ARCH_URL_CHECK_INTERNET" ] && ARCH_URL_CHECK_INTERNET="https://google.com"
 
 # trim whitespace
 function trim {
